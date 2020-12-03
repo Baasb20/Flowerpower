@@ -4,6 +4,12 @@
 --database aangemaakt
 CREATE DATABASE Flowerpower;
 
+
+CREATE TABLE user;
+    id INT NOT NULL AUTO_INCREMENT,
+    gebruikersnaam VARCHAR(250) NOT NULL,
+    wachtwoord VARCHAR (250) NOT NULL,
+
 --hier maak ik een table genaamd klant
 CREATE TABLE klant(
     id INT NOT NULL AUTO_INCREMENT,
@@ -13,7 +19,7 @@ CREATE TABLE klant(
     adres VARCHAR(250) NOT NULL,
     postcode VARCHAR(250) NOT NULL,
     woonplaats VARCHAR(250) NOT NULL,
-    geboortedatum DATE,
+    geboortedatum DATE NOT NULL,
     gebruikersnaam VARCHAR(250) NOT NULL,
     wachtwoord VARCHAR(250) NOT NULL,
     PRIMARY KEY(id)
@@ -44,7 +50,7 @@ CREATE TABLE winkel(
 --hier maak ik een table genaamd factuur
 CREATE TABLE factuur(
     id INT NOT NULL AUTO_INCREMENT,
-    factuurdatum DATE,
+    factuurdatum DATE NOT NULL,
     klantID INT NOT NULL,
     PRIMARY KEY(id),
     FOREIGN KEY(klantID) REFERENCES klant(id)
@@ -54,7 +60,7 @@ CREATE TABLE factuur(
 CREATE TABLE artikel(
     id INT NOT NULL AUTO_INCREMENT,
     artikel VARCHAR(250) NOT NULL,
-    prijs DECIMAL,
+    prijs DECIMAL(18,9) NOT NULL,
     PRIMARY KEY(id)
 )
 
@@ -62,7 +68,7 @@ CREATE TABLE artikel(
 CREATE TABLE factuurregel(
     id INT NOT NULL AUTO_INCREMENT,
     aantal VARCHAR(250) NOT NULL,
-    prijs DECIMAL(250) NOT NULL,
+    prijs DECIMAL(18,9) NOT NULL,
     factuur_id INT NOT NULL,
     artikel_id INT NOT NULL,
     PRIMARY KEY(id),
