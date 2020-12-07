@@ -2,13 +2,14 @@
 -- Klas: OITAOO8B
 
 --database aangemaakt
-CREATE DATABASE Flowerpower;
+CREATE DATABASE flowerpower;
 
 
-CREATE TABLE user;
+CREATE TABLE user(
     id INT NOT NULL AUTO_INCREMENT,
     gebruikersnaam VARCHAR(250) NOT NULL,
     wachtwoord VARCHAR (250) NOT NULL,
+)
 
 --hier maak ik een table genaamd klant
 CREATE TABLE klant(
@@ -19,7 +20,7 @@ CREATE TABLE klant(
     adres VARCHAR(250) NOT NULL,
     postcode VARCHAR(250) NOT NULL,
     woonplaats VARCHAR(250) NOT NULL,
-    geboortedatum DATE NOT NULL,
+    geboortedatum DATE,
     gebruikersnaam VARCHAR(250) NOT NULL,
     wachtwoord VARCHAR(250) NOT NULL,
     PRIMARY KEY(id)
@@ -51,16 +52,16 @@ CREATE TABLE winkel(
 CREATE TABLE factuur(
     id INT NOT NULL AUTO_INCREMENT,
     factuurdatum DATE NOT NULL,
-    klantID INT NOT NULL,
+    klant_id INT NOT NULL,
     PRIMARY KEY(id),
-    FOREIGN KEY(klantID) REFERENCES klant(id)
+    FOREIGN KEY(klant_id) REFERENCES klant(id)
 )
 
 --hier maak ik een table genaamd artikel
 CREATE TABLE artikel(
     id INT NOT NULL AUTO_INCREMENT,
     artikel VARCHAR(250) NOT NULL,
-    prijs DECIMAL(18,9) NOT NULL,
+    prijs DECIMAL(60) NOT NULL,,
     PRIMARY KEY(id)
 )
 
@@ -68,7 +69,7 @@ CREATE TABLE artikel(
 CREATE TABLE factuurregel(
     id INT NOT NULL AUTO_INCREMENT,
     aantal VARCHAR(250) NOT NULL,
-    prijs DECIMAL(18,9) NOT NULL,
+    prijs DECIMAL(60) NOT NULL,
     factuur_id INT NOT NULL,
     artikel_id INT NOT NULL,
     PRIMARY KEY(id),
