@@ -4,13 +4,6 @@
 --database aangemaakt
 CREATE DATABASE flowerpower;
 
-
-CREATE TABLE user(
-    id INT NOT NULL AUTO_INCREMENT,
-    gebruikersnaam VARCHAR(250) NOT NULL,
-    wachtwoord VARCHAR (250) NOT NULL,
-)
-
 --hier maak ik een table genaamd klant
 CREATE TABLE klant(
     id INT NOT NULL AUTO_INCREMENT,
